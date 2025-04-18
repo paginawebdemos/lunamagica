@@ -1,0 +1,77 @@
+/* Estilos modernos, atractivos y completamente responsivos */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: rgb(255, 255, 255);
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+}
+
+.reserva-form {
+    width: 90%;
+    max-width: 350px;
+    padding: 20px; /* Aumentado para mejor espacio interno */
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.757);
+    text-align: center;
+}
+
+h1 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #1e3c72;
+    margin-bottom: 20px; /* Más separación debajo del título */
+}
+
+form {
+    display: grid;
+    gap: 15px; /* Aumentado para más espacio entre los campos */
+}
+
+label {
+    font-weight: 600;
+    font-size: 14px;
+    color: #444;
+    text-align: left;
+}
+
+input, button {
+    padding: 10px; /* Más padding para hacer los campos más cómodos */
+    font-size: 15px; /* Tamaño de fuente más grande */
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input {
+    border: 1.5px solid #ddd;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+    border-color: #0043b6;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    outline: none;
+}
+
+button {
+    background: linear-gradient(135deg, #0600ab, #008cff);
+    color: white;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    padding: 12px; /* Más espacio dentro del botón */
+    font-size: 16px;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #000000, #000000);
+    transform: scale(1.03);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.955);
+}

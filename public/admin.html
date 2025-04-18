@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador - Luna Mágica</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="Imagenes/Red and Yellow Catering Flat Illustrative Food Place Logo (1).png" type="image/x-icon">
+    
+    <!-- Cargando biblioteca de partículas para fondo -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.0.0/tsparticles.bundle.min.js"></script>
+    
+    <!-- Cargando el archivo JS específico del admin -->
+    <script type="module" src="admin.js" defer></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #000000, #000000);
+            color: rgb(255, 255, 255);
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Contenedor para las partículas de fondo -->
+    <div id="particles-js"></div>
+
+    <div id="admin-section">
+        <h3>👨‍🍳 Administrador</h3>
+        
+        <!-- Sección de login -->
+        <div id="login-section">
+            <h3>🔑 Iniciar sesión</h3>
+            <form id="login-form">
+                <input type="email" id="email" placeholder="Correo electrónico" required aria-label="Correo electrónico">
+                <input type="password" id="password" placeholder="Contraseña" required aria-label="Contraseña">
+                <button type="submit">Iniciar sesión</button>
+            </form>
+            <!-- Mensaje de error si las credenciales son incorrectas -->
+            <p id="error-message" style="color:red; display:none;">Correo o contraseña incorrectos.</p>
+        </div>
+        
+        <!-- Sección del administrador (se muestra solo después de iniciar sesión) -->
+        <div id="admin-content" style="display:none;">
+            <button id="logout-btn">Cerrar sesión</button>
+
+            <!-- Formulario para agregar platos -->
+            <form id="add-dish-form">
+                <input type="text" id="dish-name" placeholder="Nombre del plato" required aria-label="Nombre del plato">
+                <select id="dish-category" required aria-label="Categoría del plato">
+                    <option value="" disabled selected>Selecciona una categoría</option>
+                    <option value="Entradas">🥗 Entradas</option>
+                    <option value="Platos principales">🍝 Platos principales</option>
+                    <option value="Postres">🍰 Postres</option>
+                    <option value="Bebidas">🥤 Bebidas</option>
+                </select>
+                <input type="text" id="dish-price" placeholder="Precio" required aria-label="Precio del plato">
+                <input type="file" id="dish-img-upload" accept="image/*" required aria-label="Subir imagen del plato">
+                <textarea id="dish-description" placeholder="Descripción del plato" required aria-label="Descripción del plato"></textarea>
+                <button type="submit">Agregar Plato</button>
+            </form>
+    
+            <!-- Listado de platos disponibles -->
+            <h4>Platos Disponibles</h4>
+            <div id="menu-list" class="admin"></div>
+        </div>
+    </div>
+
+</body>
+</html>
