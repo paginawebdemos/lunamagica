@@ -1794,24 +1794,44 @@ form button:hover {
     z-index: 1; /* Mantiene el footer en una capa inferior si es necesario */
   }
 }
-/* Ajuste para evitar que el chat-container quede debajo del encabezado */
-.chat-container {
-  top: 100px; /* Asegura que el contenedor esté debajo del encabezado */
-  bottom: auto; /* Elimina la fijación al bottom para priorizar top */
-  z-index: 20; /* Asegura que esté por encima del encabezado */
-}
-
-/* Ajuste para pantallas pequeñas */
-@media (max-width: 768px) {
+/* Ajuste para evitar que el chat-container quede debajo del encabezado solo en computadoras */
+@media screen and (min-width: 769px) {
   .chat-container {
-    top: 80px; /* Menos espacio en móviles, asumiendo un encabezado más pequeño */
-    width: 90%;
-    height: 400px;
+    top: 100px; /* Asegura que el contenedor esté debajo del encabezado */
+    bottom: auto; /* Elimina la fijación al bottom para priorizar top */
+    z-index: 20; /* Asegura que esté por encima del encabezado */
+  }
+
+  .header {
+    z-index: 10; /* Asegura que el header esté debajo del chat-container */
   }
 }
 
-/* Asegura que el header no interfiera */
-.header {
-  z-index: 10; /* Asegura que el header esté debajo del chat-container */
-}
+/* Asegura que los estilos originales se mantengan en móviles */
+@media screen and (max-width: 768px) {
+  .chat-container {
+    bottom: 20px; /* Restaura la posición original en móviles */
+    top: auto; /* Elimina cualquier ajuste de top */
+    width: 90%;
+    height: 400px;
+    z-index: 15; /* Mantiene el z-index original del chat-btn */
+  }
 
+  .close-btn {
+    top: 8px;
+    right: 8px;
+    font-size: 16px;
+    width: 28px;
+    height: 28px;
+  }
+
+  #send-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .chat-box {
+    padding: 10px;
+  }
+}
