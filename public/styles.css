@@ -1779,4 +1779,18 @@ form button:hover {
     color: #00e1ff; /* Aplica color blanco al texto en negrita */
   }
   
+/* Ajuste para evitar solapamiento con el pie de página en computadoras */
+@media screen and (min-width: 769px) {
+  .menu-items {
+    margin-bottom: 120px; /* Aumenta el margen inferior para dar más espacio */
+  }
 
+  .menu-container {
+    padding-bottom: 100px; /* Añade padding inferior para asegurar que el contenido no se superponga */
+  }
+
+  footer {
+    position: relative; /* Asegura que el footer no se vea afectado por elementos flotantes */
+    z-index: 1; /* Mantiene el footer en una capa inferior si es necesario */
+  }
+}
