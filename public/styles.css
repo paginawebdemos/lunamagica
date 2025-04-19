@@ -1794,3 +1794,24 @@ form button:hover {
     z-index: 1; /* Mantiene el footer en una capa inferior si es necesario */
   }
 }
+/* Ajuste para evitar que el chat-container quede debajo del encabezado */
+.chat-container {
+  top: 100px; /* Asegura que el contenedor esté debajo del encabezado */
+  bottom: auto; /* Elimina la fijación al bottom para priorizar top */
+  z-index: 20; /* Asegura que esté por encima del encabezado */
+}
+
+/* Ajuste para pantallas pequeñas */
+@media (max-width: 768px) {
+  .chat-container {
+    top: 80px; /* Menos espacio en móviles, asumiendo un encabezado más pequeño */
+    width: 90%;
+    height: 400px;
+  }
+}
+
+/* Asegura que el header no interfiera */
+.header {
+  z-index: 10; /* Asegura que el header esté debajo del chat-container */
+}
+
