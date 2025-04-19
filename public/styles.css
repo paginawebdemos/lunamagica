@@ -4,15 +4,9 @@ body {
   margin: 0;
   padding: 0;
   background-color: #ffffff;
-  color: rgb(0, 0, 0)  display: flex;
-  flex-direction: column;
-  min-height: 100vh;;
-  
+  color: rgb(0, 0, 0);
 }
 
-main {
-  flex: 1;
-}
 
   
   /* Animaciones */
@@ -1713,6 +1707,17 @@ form button:hover {
   .footer-bottom p strong {
     color: #00e1ff; /* Aplica color blanco al texto en negrita */
   }
+  
+/* Forzar que el contenido mínimo del body empuje el footer hacia abajo */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
 
 .menu-item {
   display: flex;
