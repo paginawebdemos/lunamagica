@@ -24,7 +24,7 @@ function renderMenu(items) {
     menuItem.innerHTML = `
       <img src="${item.img}" alt="${item.name}">
       <h3>${item.name}</h3>
-      <p>Precio: <strong>${item.price}</strong></p>
+      <p>Precio: <strong>$${item.price}</strong></p>
       <button class="pedido-button">Comprar</button>
       <button class="read-more-button">Leer más</button>
     `;
