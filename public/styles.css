@@ -1271,7 +1271,8 @@ h2 {
   
 /* Estilo del contenedor del formulario */
 .order-form {
-  max-width: 600px; /* Más ancho para computadoras */
+  max-width: 700px !important; /* Forzado para computadoras */
+  width: 90% !important; /* Evita que se vea demasiado rígido */
   margin: 40px auto;
   padding: 30px;
   background-color: #ffffff;
@@ -1321,6 +1322,8 @@ input[type="number"] {
   outline: none;
   background-color: #f3f6f9;
   transition: border 0.3s ease, box-shadow 0.3s ease;
+  width: 100%; /* Asegura que los inputs ocupen el espacio disponible */
+  box-sizing: border-box;
 }
 
 /* Estilo cuando los campos de texto tienen foco */
@@ -1369,7 +1372,7 @@ input:disabled {
 
 /* Estilo del input de número */
 input[type="number"] {
-  width: 100px;
+  width: 120px !important; /* Ajuste más ancho para mejor usabilidad */
   text-align: center;
 }
 
@@ -1389,15 +1392,15 @@ input[type="number"] {
   }
 }
 
-/* Ajustes responsivos para tablets y computadoras */
+/* Ajustes responsivos para computadoras (pantallas mayores a 768px) */
 @media (min-width: 769px) {
   .order-form {
-    max-width: 600px; /* Ancho optimizado para computadoras */
-    padding: 30px;
+    max-width: 700px !important; /* Forzado para escritorio */
+    padding: 35px !important;
   }
 
   h3 {
-    font-size: 26px;
+    font-size: 28px;
   }
 
   input[type="text"],
@@ -1408,19 +1411,20 @@ input[type="number"] {
 
   .order-form button {
     font-size: 16px;
-    padding: 15px;
+    padding: 16px;
   }
 
   form {
-    gap: 20px;
+    gap: 22px;
   }
 }
 
 /* Ajustes responsivos para celulares (pantallas de 768px o menos) */
 @media (max-width: 768px) {
   .order-form {
-    max-width: 90%; /* Más ancho relativo para evitar que se vea demasiado fino */
-    padding: 20px;
+    max-width: 95% !important; /* Ocupa casi todo el ancho disponible */
+    width: 95% !important; /* Evita que se vea demasiado estrecho */
+    padding: 25px !important;
     margin: 20px auto;
   }
 
@@ -1442,14 +1446,18 @@ input[type="number"] {
   form {
     gap: 15px;
   }
+
+  input[type="number"] {
+    width: 100px !important;
+  }
 }
 
 /* Ajustes para pantallas muy pequeñas (480px o menos) */
 @media (max-width: 480px) {
   .order-form {
-    max-width: 95%;
-    padding: 16px;
-    border-radius: 10px;
+    max-width: 98% !important; /* Máximo ancho para pantallas pequeñas */
+    padding: 20px !important;
+    border-radius: 12px;
   }
 
   h3 {
@@ -1470,8 +1478,11 @@ input[type="number"] {
   form {
     gap: 12px;
   }
-}
 
+  input[type="number"] {
+    width: 90px !important;
+  }
+}
 
 /* Estilo general para el contenedor del administrador */
 #admin-section {
