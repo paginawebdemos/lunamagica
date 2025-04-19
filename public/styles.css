@@ -974,11 +974,29 @@ h2 {
   cursor: pointer;
 }
 
+/* Contenedor para la imagen cuadrada */
+.image-container {
+  width: 100%;
+  max-width: 300px; /* Tamaño máximo de la imagen */
+  aspect-ratio: 1/1; /* Proporción cuadrada */
+  overflow: hidden; /* Oculta partes sobrantes de la imagen */
+  margin: 0 auto 20px; /* Centrado y espacio inferior */
+  border-radius: 8px; /* Bordes redondeados */
+}
+
+/* Estilos para la imagen dentro del contenedor */
 .modal img {
   width: 100%;
-  max-width: 300px;
-  border-radius: 8px;
-  margin-bottom: 20px;
+  height: 100%;
+  object-fit: cover; /* Ajusta la imagen manteniendo proporción */
+  display: block;
+}
+
+/* Ajustes para dispositivos móviles */
+@media (max-width: 768px) {
+  .image-container {
+    max-width: 250px; /* Tamaño máximo en móviles */
+  }
 }
 
 /* Reducción del tamaño de los textos en computadoras */
