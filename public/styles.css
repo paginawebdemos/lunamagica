@@ -869,6 +869,15 @@ h2 {
     margin-bottom: 5px;
   }
 
+  .menu-item h5 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+
   .menu-item p {
     font-size: 1rem;
     margin-bottom: 5px;
