@@ -434,7 +434,7 @@ main {
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
-  margin-top: 50px; /* ← redujimos el espacio de 20px a 10px */
+  margin-top: 5px; /* ← redujimos el espacio de 20px a 10px */
   margin-bottom: 80px; /* ← dejamos el ajuste anterior para separar del footer */
 }
 
