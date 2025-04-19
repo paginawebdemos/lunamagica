@@ -1711,4 +1711,17 @@ form button:hover {
   .footer-bottom p strong {
     color: #00e1ff; /* Aplica color blanco al texto en negrita */
   }
+.menu-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: auto;
+  aspect-ratio: unset;
+}
+
+.menu-item h3,
+.menu-item p {
+  margin: 8px 0;
+}
+
   
