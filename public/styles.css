@@ -5,6 +5,13 @@ body {
   padding: 0;
   background-color: #ffffff;
   color: rgb(0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
 }
 
 
@@ -600,7 +607,7 @@ body {
      
 
     
-/* Contenedor principal de los items del menú */
+/* Mejora de .menu-item para evitar alargamiento innecesario */
 .menu-item {
   background-color: #fff;
   box-shadow: 0 4px 12px #4f3af2;
@@ -610,14 +617,20 @@ body {
   width: 100%;
   max-width: 300px;
   box-sizing: border-box;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   text-align: center;
   position: relative;
   font-family: 'Roboto', sans-serif;
-  aspect-ratio: 1 / 1;
   border: 2px solid #000000;
+  height: auto;
+}
+
+
+.menu-item h3,
+.menu-item p {
+  margin: 8px 0;
 }
 
 /* Ajustes solo para computadoras */
