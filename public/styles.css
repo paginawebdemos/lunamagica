@@ -533,63 +533,77 @@ main {
      
 
 
-    /* Contenedor del filtro */
-    .filter-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
-      margin-top: 30px;
-    }
-    
-    /* Estilo para el input de b�squeda */
-    .search-box {
-      padding: 10px 20px;
-      font-size: 1rem;
-      border-radius: 25px;
-      border: 2px solid #ccc;
-      width: 250px;
-      transition: all 0.3s ease;
-    }
-    
-    .search-box:focus {
-      outline: none;
-      border-color: #6c5ce7;
-    }
-    
-    /* Estilo para el select del filtro */
-    .category-filter {
-      padding: 10px;
-      font-size: 1rem;
-      border-radius: 25px;
-      border: 2px solid #ccc;
-      background-color: rgb(255, 255, 255);
-      width: 220px;
-      transition: all 0.3s ease;
-    }
-    
-    .category-filter:hover, .search-box:hover {
-      border-color: #6c5ce7;
-    }
-    
-    /* Animaci�n para las categor�as */
-    .category-filter, .search-box {
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-    
-    .category-filter:focus {
-      outline: none;
-      border-color: #6c5ce7;
-      box-shadow: 0 0 10px rgba(108, 92, 237, 0.5);
-    }
+/* Contenedor del filtro */
+.filter-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 30px;
+}
 
-@media screen and (min-width: 1024px) {
-  .search-box {
-    width: 300px; /* Aumentar el ancho en pantallas grandes */
+/* Estilo para el input de búsqueda y el select de categorías */
+.search-box,
+.category-filter {
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 25px;
+  border: 2px solid #ccc;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 250px !important; /* Ancho fijo y forzado para ambos */
+  box-sizing: border-box;
+}
+
+/* Estilo para el select de categorías */
+.category-filter {
+  background-color: rgb(255, 255, 255);
+}
+
+/* Efecto hover */
+.search-box:hover,
+.category-filter:hover {
+  border-color: #6c5ce7;
+}
+
+/* Efecto focus */
+.search-box:focus,
+.category-filter:focus {
+  outline: none;
+  border-color: #6c5ce7;
+  box-shadow: 0 0 10px rgba(108, 92, 237, 0.5);
+}
+
+/* Media query para pantallas grandes (computadoras) */
+@media screen and (min-width: 769px) {
+  .search-box,
+  .category-filter {
+    width: 300px !important; /* Mismo ancho para ambos en computadoras */
+  }
+}
+
+/* Media query para pantallas pequeñas (móviles) */
+@media screen and (max-width: 768px) {
+  .filter-container {
+    flex-direction: column;
+    gap: 10px;
   }
 
+  .search-box,
   .category-filter {
-    width: 270px; /* Hacer el select un poco más ancho */
+    width: 90% !important; /* Ocupa casi todo el ancho disponible */
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Media query para pantallas muy pequeñas */
+@media screen and (max-width: 600px) {
+  .search-box,
+  .category-filter {
+    width: 100% !important;
+    padding: 7px 10px;
+    font-size: 0.85rem;
   }
 }
 
