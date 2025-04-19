@@ -1269,16 +1269,15 @@ h2 {
   }
 }
   
-/* Estilo base del contenedor del formulario */
+/* Estilo del contenedor del formulario */
 .order-form {
-  max-width: 800px; /* Más ancho para pantallas grandes */
+  max-width: 600px; /* Más ancho para computadoras */
   margin: 40px auto;
-  padding: 25px;
+  padding: 30px;
   background-color: #ffffff;
   border-radius: 15px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
   transition: all 0.4s ease;
-  animation: fadeIn 0.5s ease-in-out;
 }
 
 /* Efecto hover para el contenedor */
@@ -1291,7 +1290,7 @@ h2 {
 h3 {
   text-align: center;
   color: #1a237e;
-  font-size: 24px;
+  font-size: 26px;
   margin-bottom: 20px;
   font-weight: 700;
   letter-spacing: 0.8px;
@@ -1301,12 +1300,12 @@ h3 {
 form {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 20px;
 }
 
 /* Estilo de las etiquetas */
 label {
-  font-size: 14px;
+  font-size: 15px;
   color: #37474f;
   margin-bottom: 6px;
   font-weight: 600;
@@ -1315,8 +1314,8 @@ label {
 /* Estilo de los campos de texto */
 input[type="text"],
 input[type="number"] {
-  padding: 12px;
-  font-size: 15px;
+  padding: 14px;
+  font-size: 16px;
   border: 1px solid #cfd8dc;
   border-radius: 10px;
   outline: none;
@@ -1370,11 +1369,15 @@ input:disabled {
 
 /* Estilo del input de número */
 input[type="number"] {
-  width: 80px;
+  width: 100px;
   text-align: center;
 }
 
 /* Animación de entrada del formulario */
+.order-form {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -1386,17 +1389,67 @@ input[type="number"] {
   }
 }
 
-/* Ajustes responsivos exclusivos para tablets y móviles */
-@media (max-width: 1024px) {
+/* Ajustes responsivos para tablets y computadoras */
+@media (min-width: 769px) {
   .order-form {
-    max-width: 90%;
+    max-width: 600px; /* Ancho optimizado para computadoras */
+    padding: 30px;
+  }
+
+  h3 {
+    font-size: 26px;
+  }
+
+  input[type="text"],
+  input[type="number"] {
+    font-size: 16px;
+    padding: 14px;
+  }
+
+  .order-form button {
+    font-size: 16px;
+    padding: 15px;
+  }
+
+  form {
+    gap: 20px;
   }
 }
 
-@media (max-width: 768px) and (orientation: portrait) {
+/* Ajustes responsivos para celulares (pantallas de 768px o menos) */
+@media (max-width: 768px) {
+  .order-form {
+    max-width: 90%; /* Más ancho relativo para evitar que se vea demasiado fino */
+    padding: 20px;
+    margin: 20px auto;
+  }
+
+  h3 {
+    font-size: 22px;
+  }
+
+  input[type="text"],
+  input[type="number"] {
+    font-size: 15px;
+    padding: 12px;
+  }
+
+  .order-form button {
+    font-size: 15px;
+    padding: 12px;
+  }
+
+  form {
+    gap: 15px;
+  }
+}
+
+/* Ajustes para pantallas muy pequeñas (480px o menos) */
+@media (max-width: 480px) {
   .order-form {
     max-width: 95%;
-    padding: 20px;
+    padding: 16px;
+    border-radius: 10px;
   }
 
   h3 {
@@ -1411,33 +1464,11 @@ input[type="number"] {
 
   .order-form button {
     font-size: 14px;
-    padding: 12px;
+    padding: 10px;
   }
 
   form {
     gap: 12px;
-  }
-}
-
-@media (max-width: 480px) {
-  .order-form {
-    padding: 16px;
-    border-radius: 10px;
-  }
-
-  h3 {
-    font-size: 18px;
-  }
-
-  input[type="text"],
-  input[type="number"] {
-    font-size: 13px;
-    padding: 8px;
-  }
-
-  .order-form button {
-    font-size: 13px;
-    padding: 10px;
   }
 }
 
