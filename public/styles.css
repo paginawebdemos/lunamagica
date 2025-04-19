@@ -9,7 +9,6 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
-
 main {
   flex: 1;
 }
@@ -869,15 +868,6 @@ h2 {
     margin-bottom: 5px;
   }
 
-  .menu-item h5 {
-  font-size: 1.2rem;
-  font-weight: bold;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width: 100%;
-}
-
   .menu-item p {
     font-size: 1rem;
     margin-bottom: 5px;
@@ -898,6 +888,10 @@ h2 {
         padding: 0;
         box-sizing: border-box;
       }
+      
+    
+
+
       
     
     
@@ -1730,32 +1724,4 @@ form button:hover {
     color: #00e1ff; /* Aplica color blanco al texto en negrita */
   }
   
-/* Forzar que el contenido mínimo del body empuje el footer hacia abajo */
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-main {
-  flex: 1;
-}
-
-.menu-item {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: auto;
-  aspect-ratio: unset;
-}
-
-.menu-item h3,
-.menu-item p {
-  margin: 8px 0;
-}
-
-
-.menu-items {
-  margin-bottom: 80px;
-}
 
