@@ -1,4 +1,4 @@
-// 🟢 CAMBIA esta URL si tu backend tiene otro dominio en Render
+// 🟢 URL de tu backend
 const API_URL = "https://lunamagica.onrender.com";
 
 // 🔐 Login seguro con backend
@@ -56,22 +56,55 @@ window.deleteDish = async function (id) {
   loadMenu();
 };
 
-// ➕ Agregar plato
-document.getElementById("add-dish-form").addEventListener("submit", async function (e) {
-  e.preventDefault();
-
+// ☁️ Subir imagen a Cloudinary
+async function uploadToCloudinary(file) {
+  const url = "https://api.cloudinary.com/v1_1/drjrnf6rr/image/upload";
   const formData = new FormData();
-  formData.append("name", document.getElementById("dish-name").value);
-  formData.append("category", document.getElementById("dish-category").value);
-  formData.append("price", document.getElementById("dish-price").value);
-  formData.append("description", document.getElementById("dish-description").value);
-  formData.append("image", document.getElementById("dish-img-upload").files[0]);
+  formData.append("file", file);
+  formData.append("upload_preset", "ml_default");
 
-  await fetch(`${API_URL}/api/menu`, {
+  const res = await fetch(url, {
     method: "POST",
     body: formData,
   });
 
-  document.getElementById("add-dish-form").reset();
-  loadMenu();
+  const data = await res.json();
+  return data.secure_url;
+}
+
+// ➕ Agregar plato
+document.getElementById("add-dish-form").addEventListener("submit", async function (e) {
+  e.preventDefault();
+
+  const name = document.getElementById("dish-name").value;
+  const category = document.getElementById("dish-category").value;
+  const price = document.getElementById("dish-price").value;
+  const description = document.getElementById("dish-description").value;
+  const file = document.getElementById("dish-img-upload").files[0];
+
+  if (!file) {
+    alert("Por favor, selecciona una imagen.");
+    return;
+  }
+
+  try {
+    const imgURL = await uploadToCloudinary(file);
+
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("category", category);
+    formData.append("price", price);
+    formData.append("description", description);
+    formData.append("image", imgURL); // Usamos la URL de Cloudinary
+
+    await fetch(`${API_URL}/api/menu`, {
+      method: "POST",
+      body: formData,
+    });
+
+    document.getElementById("add-dish-form").reset();
+    loadMenu();
+  } catch (error) {
+    alert("Error al subir imagen a Cloudinary.");
+  }
 });
