@@ -1,15 +1,14 @@
+// 🔄 CAMBIA ESTA URL si tu dominio en Render es diferente
+const API_URL = "https://TU_BACKEND.onrender.com";
+
+// 🔐 Login del admin
 document.getElementById("login-form").addEventListener("submit", async function (e) {
   e.preventDefault();
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
-  const res = await fetch("/api/login", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ email, password }),
-  });
-
-  if (res.ok) {
+  // Login simulado (puedes hacer real más adelante)
+  if (email === "admin@luna.com" && password === "1234") {
     document.getElementById("login-section").style.display = "none";
     document.getElementById("admin-content").style.display = "block";
     loadMenu();
@@ -18,23 +17,26 @@ document.getElementById("login-form").addEventListener("submit", async function 
   }
 });
 
+// 🔄 Logout
 document.getElementById("logout-btn").addEventListener("click", () => {
   location.reload();
 });
 
+// 📦 Cargar platos del menú
 async function loadMenu() {
-  const res = await fetch("/api/menu");
+  const res = await fetch(`${API_URL}/api/menu`);
   const data = await res.json();
 
   const menuList = document.getElementById("menu-list");
   menuList.innerHTML = "";
+
   data.forEach((dish) => {
     const card = document.createElement("div");
     card.classList.add("dish-card");
     card.innerHTML = `
       <img src="${dish.img}" alt="${dish.name}" width="100">
       <h5>${dish.name}</h5>
-      <p><strong>Precio:</strong> ${dish.price}</p>
+      <p><strong>Precio:</strong> $${dish.price}</p>
       <p><strong>Categoría:</strong> ${dish.category}</p>
       <p><strong>Descripción:</strong> ${dish.description}</p>
       <button onclick="deleteDish(${dish.id})">Eliminar</button>
@@ -43,11 +45,15 @@ async function loadMenu() {
   });
 }
 
+// ❌ Eliminar plato
 window.deleteDish = async function (id) {
-  await fetch(`/api/menu/${id}`, { method: "DELETE" });
+  await fetch(`${API_URL}/api/menu/${id}`, {
+    method: "DELETE",
+  });
   loadMenu();
 };
 
+// ➕ Agregar nuevo plato
 document.getElementById("add-dish-form").addEventListener("submit", async function (e) {
   e.preventDefault();
 
@@ -58,7 +64,7 @@ document.getElementById("add-dish-form").addEventListener("submit", async functi
   formData.append("description", document.getElementById("dish-description").value);
   formData.append("image", document.getElementById("dish-img-upload").files[0]);
 
-  await fetch("/api/menu", {
+  await fetch(`${API_URL}/api/menu`, {
     method: "POST",
     body: formData,
   });
@@ -66,5 +72,3 @@ document.getElementById("add-dish-form").addEventListener("submit", async functi
   document.getElementById("add-dish-form").reset();
   loadMenu();
 });
-
-  
