@@ -1,3 +1,6 @@
+// 🔁 CAMBIA ESTA URL si tu dominio en Render es diferente
+const API_URL = "https://TU_BACKEND.onrender.com";
+
 let menuItems = [];
 const menuSection = document.getElementById("menu");
 const modal = document.getElementById("myModal");
@@ -8,14 +11,19 @@ const closeBtn = document.getElementsByClassName("close")[0];
 const searchBox = document.getElementById("search");
 const categoryFilterSelect = document.getElementById("category-filter-select");
 
-// Cargar platos
+// Cargar platos desde la API
 async function loadMenu() {
-  const res = await fetch("/api/menu");
-  const data = await res.json();
-  menuItems = data;
-  renderMenu(menuItems);
+  try {
+    const res = await fetch(`${API_URL}/api/menu`);
+    const data = await res.json();
+    menuItems = data;
+    renderMenu(menuItems);
+  } catch (error) {
+    console.error("Error al cargar el menú:", error);
+  }
 }
 
+// Mostrar platos en el HTML
 function renderMenu(items) {
   menuSection.innerHTML = "";
   items.forEach((item) => {
@@ -39,12 +47,14 @@ function renderMenu(items) {
   if (loadingContainer) loadingContainer.style.display = "none";
 }
 
+// Redirigir a order.html
 window.goToOrderPage = function (id) {
   const selectedItem = menuItems.find((item) => item.id === id);
   localStorage.setItem("selectedItem", JSON.stringify(selectedItem));
   window.location.href = "order.html";
 };
 
+// Mostrar descripción en el modal
 window.showDescription = function (id) {
   const item = menuItems.find((i) => i.id === id);
   modalTitle.textContent = item.name;
@@ -54,10 +64,12 @@ window.showDescription = function (id) {
   modal.style.display = "block";
 };
 
+// Cerrar modal
 closeBtn.addEventListener("click", () => {
   modal.style.display = "none";
 });
 
+// Búsqueda y filtro
 searchBox.addEventListener("input", filterMenu);
 categoryFilterSelect.addEventListener("change", filterMenu);
 
@@ -72,4 +84,5 @@ function filterMenu() {
   renderMenu(filteredItems);
 }
 
+// Iniciar
 loadMenu();
