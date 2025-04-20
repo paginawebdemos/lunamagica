@@ -1,14 +1,19 @@
-// 🔄 CAMBIA ESTA URL si tu dominio en Render es diferente
-const API_URL = "https://TU_BACKEND.onrender.com";
+// 🟢 CAMBIA esta URL si tu backend tiene otro dominio en Render
+const API_URL = "https://lunamagica.onrender.com";
 
-// 🔐 Login del admin
+// 🔐 Login seguro con backend
 document.getElementById("login-form").addEventListener("submit", async function (e) {
   e.preventDefault();
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
-  // Login simulado (puedes hacer real más adelante)
-  if (email === "admin@luna.com" && password === "1234") {
+  const res = await fetch(`${API_URL}/api/login`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, password }),
+  });
+
+  if (res.ok) {
     document.getElementById("login-section").style.display = "none";
     document.getElementById("admin-content").style.display = "block";
     loadMenu();
@@ -22,7 +27,7 @@ document.getElementById("logout-btn").addEventListener("click", () => {
   location.reload();
 });
 
-// 📦 Cargar platos del menú
+// 📦 Cargar menú
 async function loadMenu() {
   const res = await fetch(`${API_URL}/api/menu`);
   const data = await res.json();
@@ -45,15 +50,13 @@ async function loadMenu() {
   });
 }
 
-// ❌ Eliminar plato
+// ❌ Eliminar
 window.deleteDish = async function (id) {
-  await fetch(`${API_URL}/api/menu/${id}`, {
-    method: "DELETE",
-  });
+  await fetch(`${API_URL}/api/menu/${id}`, { method: "DELETE" });
   loadMenu();
 };
 
-// ➕ Agregar nuevo plato
+// ➕ Agregar plato
 document.getElementById("add-dish-form").addEventListener("submit", async function (e) {
   e.preventDefault();
 
