@@ -1,5 +1,4 @@
 const express = require("express");
-const multer = require("multer");
 const path = require("path");
 const cors = require("cors");
 const { Pool } = require("pg");
@@ -43,13 +42,6 @@ app.post("/api/login", (req, res) => {
   }
 });
 
-// 📤 Subida de imágenes
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => cb(null, "public/img"),
-  filename: (req, file, cb) => cb(null, Date.now() + "-" + file.originalname),
-});
-const upload = multer({ storage });
-
 // 📦 Obtener platos
 app.get("/api/menu", async (req, res) => {
   try {
@@ -60,10 +52,10 @@ app.get("/api/menu", async (req, res) => {
   }
 });
 
-// ➕ Agregar plato
-app.post("/api/menu", upload.single("image"), async (req, res) => {
-  const { name, category, price, description } = req.body;
-  const img = `/img/${req.file.filename}`;
+// ➕ Agregar plato (con imagen de Cloudinary)
+app.post("/api/menu", async (req, res) => {
+  const { name, category, price, description, image } = req.body;
+  const img = image; // esta es la URL de Cloudinary
   try {
     const result = await pool.query(
       "INSERT INTO dishes (name, category, price, description, img) VALUES ($1, $2, $3, $4, $5) RETURNING *",
