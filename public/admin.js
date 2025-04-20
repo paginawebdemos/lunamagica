@@ -90,16 +90,20 @@ document.getElementById("add-dish-form").addEventListener("submit", async functi
   try {
     const imgURL = await uploadToCloudinary(file);
 
-    const formData = new FormData();
-    formData.append("name", name);
-    formData.append("category", category);
-    formData.append("price", price);
-    formData.append("description", description);
-    formData.append("image", imgURL); // Usamos la URL de Cloudinary
+    const data = {
+      name,
+      category,
+      price,
+      description,
+      image: imgURL // 🔥 Enviar como JSON, no FormData
+    };
 
     await fetch(`${API_URL}/api/menu`, {
       method: "POST",
-      body: formData,
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
     });
 
     document.getElementById("add-dish-form").reset();
