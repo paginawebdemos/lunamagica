@@ -11,11 +11,17 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static("public"));
 
+// 🔐 Credenciales protegidas
+const ADMIN_EMAIL = "admin@luna.com";
+const ADMIN_PASSWORD = "1234";
+
+// Conexión PostgreSQL
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: { rejectUnauthorized: false }
+  ssl: { rejectUnauthorized: false },
 });
 
+// Crear tabla si no existe
 pool.query(`
   CREATE TABLE IF NOT EXISTS dishes (
     id SERIAL PRIMARY KEY,
@@ -27,13 +33,24 @@ pool.query(`
   )
 `);
 
+// ✅ Login seguro
+app.post("/api/login", (req, res) => {
+  const { email, password } = req.body;
+  if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
+    res.json({ success: true });
+  } else {
+    res.status(401).json({ success: false, message: "Credenciales incorrectas" });
+  }
+});
+
+// 📤 Subida de imágenes
 const storage = multer.diskStorage({
   destination: (req, file, cb) => cb(null, "public/img"),
   filename: (req, file, cb) => cb(null, Date.now() + "-" + file.originalname),
 });
 const upload = multer({ storage });
 
-// GET platos
+// 📦 Obtener platos
 app.get("/api/menu", async (req, res) => {
   try {
     const result = await pool.query("SELECT * FROM dishes");
@@ -43,7 +60,7 @@ app.get("/api/menu", async (req, res) => {
   }
 });
 
-// POST agregar plato
+// ➕ Agregar plato
 app.post("/api/menu", upload.single("image"), async (req, res) => {
   const { name, category, price, description } = req.body;
   const img = `/img/${req.file.filename}`;
@@ -58,7 +75,7 @@ app.post("/api/menu", upload.single("image"), async (req, res) => {
   }
 });
 
-// DELETE eliminar plato
+// ❌ Eliminar plato
 app.delete("/api/menu/:id", async (req, res) => {
   try {
     await pool.query("DELETE FROM dishes WHERE id = $1", [req.params.id]);
