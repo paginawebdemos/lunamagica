@@ -52,10 +52,11 @@ app.get("/api/menu", async (req, res) => {
   }
 });
 
-// ➕ Agregar plato (con imagen de Cloudinary)
+// ✅ Agregar plato (usando URL de Cloudinary)
 app.post("/api/menu", async (req, res) => {
   const { name, category, price, description, image } = req.body;
-  const img = image; // esta es la URL de Cloudinary
+  const img = image; // 👈 esta vez SÍ usamos la URL que viene del frontend
+
   try {
     const result = await pool.query(
       "INSERT INTO dishes (name, category, price, description, img) VALUES ($1, $2, $3, $4, $5) RETURNING *",
