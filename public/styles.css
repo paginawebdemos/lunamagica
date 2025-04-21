@@ -2015,3 +2015,14 @@ form button:hover {
         font-size: 0.8rem;
     }
 }
+
+/* Estilo general para el contenedor del administrador */
+#admin-section {
+    max-width: 800px; /* Reducido para un mejor ajuste */
+    margin: 2rem auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    padding: 2rem;
+    animation: fadeIn 0.5s ease-in-out;
+}
