@@ -1854,175 +1854,156 @@ form button:hover {
   }
 }
 
+/* Estilo para el contenedor del administrador */
+#admin-section {
+    max-width: 800px !important;
+    margin: 2rem auto !important;
+    background: #fff !important;
+    border-radius: 12px !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15) !important;
+    padding: 2rem !important;
+}
+
 /* Estilo específico para la sección de login */
-#login-section {
-    max-width: 400px; /* Ancho óptimo para el formulario */
-    width: 100%; /* Asegura que no exceda el contenedor */
-    margin: 0 auto; /* Centrado horizontal */
-    padding: 1.5rem;
-    background-color: #f9f9f9; /* Fondo ligeramente gris para destacar */
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+#admin-section #login-section {
+    max-width: 400px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    padding: 1.5rem !important;
+    background-color: #f9f9f9 !important;
+    border-radius: 10px !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important;
 }
 
 /* Título de la sección de login */
-#login-section h3 {
-    text-align: center;
-    color: #1a237e; /* Color consistente con el diseño */
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
-    font-weight: 700;
+#admin-section #login-section h3 {
+    text-align: center !important;
+    color: #1a237e !important;
+    font-size: 1.8rem !important;
+    margin-bottom: 1.5rem !important;
+    font-weight: 700 !important;
 }
 
 /* Estilo del formulario de login */
-#login-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem; /* Espaciado entre elementos */
+#admin-section #login-section #login-form {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
 }
 
 /* Estilo de los inputs */
-#login-form input[type="email"],
-#login-form input[type="password"] {
-    padding: 12px;
-    font-size: 1rem;
-    border: 1px solid #cfd8dc;
-    border-radius: 8px;
-    background-color: #fff;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    width: 100%; /* Ocupa todo el ancho disponible */
-    box-sizing: border-box;
+#admin-section #login-section #login-form input[type="email"],
+#admin-section #login-section #login-form input[type="password"] {
+    padding: 12px !important;
+    font-size: 1rem !important;
+    border: 1px solid #cfd8dc !important;
+    border-radius: 8px !important;
+    background-color: #fff !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease !important;
 }
 
 /* Efecto focus para los inputs */
-#login-form input:focus {
-    border-color: #3f51b5;
-    box-shadow: 0 0 8px rgba(63, 81, 181, 0.3);
-    outline: none;
-}
-
-/* Placeholder styling */
-#login-form input::placeholder {
-    color: #90a4ae;
-    font-size: 0.95rem;
+#admin-section #login-section #login-form input:focus {
+    border-color: #3f51b5 !important;
+    box-shadow: 0 0 8px rgba(63, 81, 181, 0.3) !important;
+    outline: none !important;
 }
 
 /* Estilo del botón de login */
-#login-form button {
-    padding: 12px;
-    background-color: #3f51b5;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+#admin-section #login-section #login-form button {
+    padding: 12px !important;
+    background-color: #3f51b5 !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: 8px !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s ease, transform 0.3s ease !important;
 }
 
 /* Efecto hover para el botón */
-#login-form button:hover {
-    background-color: #ff7043;
-    transform: translateY(-2px);
+#admin-section #login-section #login-form button:hover {
+    background-color: #ff7043 !important;
+    transform: translateY(-2px) !important;
 }
 
 /* Mensaje de error */
-#error-message {
-    text-align: center;
-    font-size: 0.9rem;
-    color: #d32f2f; /* Rojo más suave */
-    margin-top: 1rem;
-    display: none;
+#admin-section #login-section #error-message {
+    text-align: center !important;
+    font-size: 0.9rem !important;
+    color: #d32f2f !important;
+    margin-top: 1rem !important;
+    display: none !important;
 }
 
-/* Ajustes responsivos para computadoras (pantallas mayores a 768px) */
+/* Ajustes responsivos para computadoras (>768px) */
 @media (min-width: 769px) {
-    #login-section {
-        max-width: 450px; /* Ligeramente más ancho en computadoras */
-        padding: 2rem;
+    #admin-section #login-section {
+        max-width: 450px !important;
+        padding: 2rem !important;
     }
-
-    #login-form input[type="email"],
-    #login-form input[type="password"] {
-        padding: 14px;
-        font-size: 1.1rem;
+    #admin-section #login-section #login-form input[type="email"],
+    #admin-section #login-section #login-form input[type="password"] {
+        padding: 14px !important;
+        font-size: 1.1rem !important;
     }
-
-    #login-form button {
-        padding: 14px;
-        font-size: 1.1rem;
+    #admin-section #login-section #login-form button {
+        padding: 14px !important;
+        font-size: 1.1rem !important;
     }
 }
 
-/* Ajustes responsivos para celulares (pantallas de 768px o menos) */
+/* Ajustes responsivos para celulares (≤768px) */
 @media (max-width: 768px) {
     #admin-section {
-        max-width: 95%;
-        padding: 1.5rem;
+        max-width: 95% !important;
+        padding: 1.5rem !important;
     }
-
-    #login-section {
-        max-width: 100%; /* Ocupa casi todo el ancho disponible */
-        padding: 1.2rem;
+    #admin-section #login-section {
+        max-width: 100% !important;
+        padding: 1.2rem !important;
     }
-
-    #login-section h3 {
-        font-size: 1.5rem;
+    #admin-section #login-section h3 {
+        font-size: 1.5rem !important;
     }
-
-    #login-form input[type="email"],
-    #login-form input[type="password"] {
-        padding: 10px;
-        font-size: 0.95rem;
+    #admin-section #login-section #login-form input[type="email"],
+    #admin-section #login-section #login-form input[type="password"] {
+        padding: 10px !important;
+        font-size: 0.95rem !important;
     }
-
-    #login-form button {
-        padding: 10px;
-        font-size: 0.95rem;
+    #admin-section #login-section #login-form button {
+        padding: 10px !important;
+        font-size: 0.95rem !important;
     }
-
-    #error-message {
-        font-size: 0.85rem;
+    #admin-section #login-section #error-message {
+        font-size: 0.85rem !important;
     }
 }
 
-/* Ajustes para pantallas muy pequeñas (480px o menos) */
+/* Ajustes para pantallas muy pequeñas (≤480px) */
 @media (max-width: 480px) {
     #admin-section {
-        padding: 1rem;
+        padding: 1rem !important;
     }
-
-    #login-section {
-        padding: 1rem;
+    #admin-section #login-section {
+        padding: 1rem !important;
     }
-
-    #login-section h3 {
-        font-size: 1.3rem;
+    #admin-section #login-section h3 {
+        font-size: 1.3rem !important;
     }
-
-    #login-form input[type="email"],
-    #login-form input[type="password"] {
-        padding: 8px;
-        font-size: 0.9rem;
+    #admin-section #login-section #login-form input[type="email"],
+    #admin-section #login-section #login-form input[type="password"] {
+        padding: 8px !important;
+        font-size: 0.9rem !important;
     }
-
-    #login-form button {
-        padding: 8px;
-        font-size: 0.9rem;
+    #admin-section #login-section #login-form button {
+        padding: 8px !important;
+        font-size: 0.9rem !important;
     }
-
-    #error-message {
-        font-size: 0.8rem;
+    #admin-section #login-section #error-message {
+        font-size: 0.8rem !important;
     }
-}
-
-/* Estilo general para el contenedor del administrador */
-#admin-section {
-    max-width: 800px; /* Reducido para un mejor ajuste */
-    margin: 2rem auto;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-    padding: 2rem;
-    animation: fadeIn 0.5s ease-in-out;
 }
